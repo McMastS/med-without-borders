@@ -1,4 +1,5 @@
 import React from 'react';
+import './Register.css';
 
 class Register extends React.Component {
 	constructor(props) {
@@ -79,12 +80,30 @@ class Register extends React.Component {
 				        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name"  id="name" onChange={this.onNameChange} />
 				      </div>
 				      <div className="mt3">
-				        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
-				        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address" onChange={this.onEmailChange} />
+				        <label className="db fw6 lh-copy f6" htmlFor="email-address">Username</label>
+				        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address" onChange={this.onUserChange} />
 				      </div>
 				      <div className="mv3">
 				        <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-				        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password" onChange={this.onPasswordChange} />
+				        <input className="b pa2 input-reset ba bg-transparent w-100" type="password" name="password"  id="password" onChange={this.onPasswordChange} />
+				      </div>
+				      <div className="mv3">
+				        <label className="db fw6 lh-copy f6" htmlFor="address">Address</label>
+				        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="address"  id="address" onChange={this.onAddressChange} />
+				      </div>
+				      <div className="mv3">
+				        <label className="db fw6 lh-copy f6" htmlFor="phone_number">Phone Number</label>
+				        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="phone_number"  id="phone_number" onChange={this.onNumberChange} />
+				      </div>
+				      <div className="mv3">
+				        <label className="db fw6 lh-copy f6" htmlFor="photo_url">Photo Url</label>
+				        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="photo_url"  id="photo_url" onChange={this.onPhotoChange} />
+				      </div>
+				      <div className="mv3">
+				        <label className="db fw6 lh-copy f6" htmlFor="inventory">Existing Inventory</label>
+				        <p>Enter your inventory in standard units for the following drugs in order seperated by spaces: </p>
+				        <p>Aspirin Amiloride Amiodarone Bisoprolol Clopidogrel Digoxin Furosemide Losartan Methyldopa Nifedipine Spironolactone Streptokinase Verapamil</p>
+				        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="inventory"  id="inventory" onChange={this.onInventoryChange} />
 				      </div>
 				    </fieldset>
 				    <div className="">
