@@ -17,3 +17,16 @@ const (
 	Streptokinase  MedicationType = "C0012"
 	Verapamil      MedicationType = "C0013"
 )
+
+// func MedicationTypeFromString(s string) MedicationType {
+// 	switch s {
+// 	case "C0001":
+// 		return Aspirin
+// 	case "C0002":
+// 		return Amiloride
+// 	case "C0003":
+// 		return Amiodarone
+// 	case "C0004":
+// 		return Bisoprolol
+// 	}
+// }

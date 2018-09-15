@@ -14,18 +14,15 @@ type Hospital struct {
 	Email       string        `bson:"email" json:"email"`
 	Address     string        `bson:"address" json:"address"`
 	Description string        `bson:"description" json:"description"`
-	PhotoURL    string        `bson:"photo_url" json:"photo_url"`
 	Doctors     []Doctor      `bson:"doctors" json:"doctors"`
 }
 
 type Doctor struct {
-	UUID        bson.ObjectId `bson:"_id" json:"id"`
-	Username    string        `bson:"username" json:"username"`
-	Password    string        `bson:"password" json:"password"`
-	Token       string        `bson:"token" json:"token"`
-	Name        string        `bson:"name" json:"name"`
-	Description string        `bson:"description" json:"description"`
-	Photo       string        `bson:"photo_url" json:"photo_url"`
+	UUID     bson.ObjectId `bson:"_id" json:"id"`
+	Username string        `bson:"username" json:"username"`
+	Password string        `bson:"password" json:"password"`
+	Token    string        `bson:"token" json:"token"`
+	Name     string        `bson:"name" json:"name"`
 }
 
 type Supplier struct {
@@ -38,9 +35,19 @@ type Supplier struct {
 	Inventory []InventoryItem `bson:"inventory" json:"inventory"`
 }
 
+func NewSupplier(Username, Password, Name, Address string) Supplier {
+	token := string(GenerateRandomBytes(32))
+	return Supplier{bson.NewObjectId(), Username, Password, token, Name, Address, []InventoryItem{}}
+}
+
 type InventoryItem struct {
-	Type     MedicationType `bson:"medication_type" json:"medication_type"`
-	Quantity int            `bson:"quantity" json:"quantity"`
+	Type         MedicationType `bson:"medication_type" json:"medication_type"`
+	Quantity     int            `bson:"quantity" json:"quantity"`
+	PricePerUnit float32        `bson:"price_per_unit" json:"price_per_unit"`
+}
+
+func NewInventoryItem(t MedicationType, quantity int, price float32) InventoryItem {
+	return InventoryItem{t, quantity, price}
 }
 
 type Order struct {
