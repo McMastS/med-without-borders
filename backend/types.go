@@ -39,8 +39,9 @@ type Supplier struct {
 }
 
 type InventoryItem struct {
-	Type     MedicationType `bson:"medication_type" json:"medication_type"`
-	Quantity int            `bson:"quantity" json:"quantity"`
+	Type         MedicationType `bson:"medication_type" json:"medication_type"`
+	Quantity     int            `bson:"quantity" json:"quantity"`
+	PricePerUnit float32        `bson:"price_per_unit" json:"price_per_unit"`
 }
 
 type Order struct {
