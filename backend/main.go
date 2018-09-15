@@ -1,7 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+
+	"encoding/json"
 
 	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
@@ -33,9 +36,22 @@ func NewSupplierEndPoint(w http.ResponseWriter, r *http.Request) {
 
 func GetMedicineEndPoint(w http.ResponseWriter, r *http.Request) {
 
+	vars := mux.Vars(r)
+	id := MedicationType(vars["id"])
+
+	suppliers, err := GetAllSuppliersForMedicineType(id)
+
+	logrus.WithFields(logrus.Fields{"Suppliers": suppliers}).Info()
+
+	data, err := json.Marshal(suppliers)
+	if err != nil {
+		logrus.Fatal("Could not marshal []Supplier array")
+	}
+
+	fmt.Fprint(w, string(data))
 }
 
-func GetUserEndPoint()
+func GetUserEndPoint() {}
 
 func main() {
 
@@ -47,10 +63,9 @@ func main() {
 	router.HandleFunc("/doctor/new", NewDoctorEndPoint).Methods("POST")
 	router.HandleFunc("/supplier/new", NewSupplierEndPoint).Methods("POST")
 
-	router.handleFunc("/user/{id}")
-
 	router.HandleFunc("/medicine/{id}", GetMedicineEndPoint).Methods("GET")
-	router.HandleFunc("/user/{id}")
+
+	http.ListenAndServe(":8080", router)
 
 	/*
 		get all medicine sources

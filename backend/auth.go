@@ -52,3 +52,37 @@ func GetAllOrders() ([]Order, error) {
 func InsertNewOrder(order Order) error {
 	return db.C("orders").Insert(&order)
 }
+
+type SupplierData struct {
+	ID       bson.ObjectId `bson:"_id" json:"id"`
+	Name     string        `bson:"name" json:"name"`
+	Quantity int           `bson:"quantity" json:"quantity"`
+	Price    float32       `bson:"price_per_unit" json:"price_per_unit"`
+}
+
+// GetAllSuppliersForMedicineType returns a list of suppliers for a given medicine type.
+func GetAllSuppliersForMedicineType(medicationType MedicationType) ([]SupplierData, error) {
+	var suppliers []Supplier
+	err := db.C("suppliers").Find(bson.M{}).All(&suppliers)
+
+	if err != nil {
+		return []SupplierData{}, err
+	}
+
+	var matchingSuppliers []SupplierData
+
+	for _, s := range suppliers {
+		for _, i := range s.Inventory {
+			if i.Type == medicationType && i.Quantity > 0 {
+				matchingSuppliers = append(matchingSuppliers, SupplierData{s.UUID, s.Name, i.Quantity, i.PricePerUnit})
+				break
+			}
+		}
+	}
+
+	return matchingSuppliers, nil
+}
+
+func InsertNewSupplier(supplier Supplier) error {
+	return db.C("suppliers").Insert(&supplier)
+}
