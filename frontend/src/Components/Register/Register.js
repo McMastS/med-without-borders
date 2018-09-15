@@ -11,7 +11,8 @@ class Register extends React.Component {
 			address: '',
 			phone_number: '',
 			photo_url: '',
-			initial_inventory: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			initial_inventory: '',
+			prices: '',
 		}
 	}
 
@@ -43,9 +44,13 @@ class Register extends React.Component {
 		this.setState({ inventory: event.target.value });
 	}
 
+	onPricesChange = (event) => {
+		this.setState({ prices: event.target.value });
+	}
+
 
 	onSubmitSignIn = () => {
-		fetch('api.medwithoutborders.org/medicine/source/new_user', {
+		fetch('http://api.medwithoutborders.org/source/new_user', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -55,7 +60,8 @@ class Register extends React.Component {
 				address: this.state.address,
 				phone_number: this.state.phone_number,
 				photo_url: this.state.photo_url,
-				inventory: this.state.inventory
+				inventory: this.state.inventory,
+				prices: this.state.prices,
 			})
 		})
 			.then(response => response.json())
@@ -104,6 +110,12 @@ class Register extends React.Component {
 				        <p>Enter your inventory in standard units for the following drugs in order seperated by spaces: </p>
 				        <p>Aspirin Amiloride Amiodarone Bisoprolol Clopidogrel Digoxin Furosemide Losartan Methyldopa Nifedipine Spironolactone Streptokinase Verapamil</p>
 				        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="inventory"  id="inventory" onChange={this.onInventoryChange} />
+				      </div>
+				      <div className="mv3">
+				        <label className="db fw6 lh-copy f6" htmlFor="prices">Prices</label>
+				        <p>Enter your price in $ for the following drugs in order seperated by spaces: </p>
+				        <p>Aspirin Amiloride Amiodarone Bisoprolol Clopidogrel Digoxin Furosemide Losartan Methyldopa Nifedipine Spironolactone Streptokinase Verapamil</p>
+				        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="prices"  id="prices" onChange={this.onPricesChange} />
 				      </div>
 				    </fieldset>
 				    <div className="">
