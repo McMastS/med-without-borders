@@ -17,8 +17,11 @@ func GenerateRandomString(n int) string {
 	return string(b)
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f59736418a49e8046e758fee4824b784687567bb
 func GetHospitalForID(id uuid.UUID) (Hospital, error) {
 	return Hospital{}, nil
 }
