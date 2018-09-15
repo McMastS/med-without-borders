@@ -15,7 +15,6 @@ const (
 	Amiodarone          MedicationType = 4
 	Bisoprolol          MedicationType = 5
 	Clopidogrel         MedicationType = 6
-	Digoxin     	    MedicationType = 7
 )
 
 type Hospital struct {
@@ -38,7 +37,17 @@ type Doctor struct {
 	Photo       string
 }
 
-type 
+type Supplier struct {
+	UUID      uuid.UUID
+	Name      string
+	Address   string
+	Inventory []InventoryItem
+}
+
+type InventoryItem struct {
+	Type     MedicationType
+	Quantity int
+}
 
 type Order struct {
 	Medication     MedicationType
@@ -50,5 +59,3 @@ type Order struct {
 	Quantity       int
 	PricePerUnit   float32
 }
-
-
