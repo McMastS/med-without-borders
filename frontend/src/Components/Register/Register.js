@@ -62,8 +62,8 @@ class Register extends React.Component {
 				inventory: this.state.inventory,
 				prices: this.state.prices,
 			})
-		}).then(response.json() => {
-				console.log(response[0]);
+		}).then(response => {
+				console.log(response);
 				this.props.history.push("/");
 			})
 		// })
