@@ -1,6 +1,5 @@
 import React from 'react';
 import './Register.css';
-import axios from 'axios';
 
 class Register extends React.Component {
 	constructor(props) {
@@ -49,45 +48,68 @@ class Register extends React.Component {
 		this.setState({ prices: event.target.value });
 	}
 
-
 	onSubmitSignIn = () => {
-		// fetch('http://api.medwithoutborders.org/source/new_user', {
-		// 	method: 'post',
-		// 	headers: {"Access-Control-Allow-Origin": "*",
-		// 		"Access-Control-Allow-Headers" : "Origin, X-Requested-With, Content-Type, Accept"
-		// 	}
-		// 	body: JSON.stringify({
-		// 		username: this.state.username,
-		// 		password: this.state.password,
-		// 		name: this.state.name,
-		// 		address: this.state.address,
-		// 		phone_number: this.state.phone_number,
-		// 		photo_url: this.state.photo_url,
-		// 		inventory: this.state.inventory,
-		// 		prices: this.state.prices,
-		// 	})
-		// }).then(response => {
-		// 		console.log(response.json())
-		// 	})
-		// 	.then(data => {
-		// 			localStorage.setItem('uuid', data[1]);
-		// 			localStorage.setItem('token', data[2]);
-		// 			this.props.history.push("/");
-		// 	})
-			
-			axios.post('http://api.medwithoutborders.org/source/new_user', {
-				username : this.state.username,
+		fetch('http://api.medwithoutborders.org/source/new_user', {
+			method: 'post',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				username: this.state.username,
 				password: this.state.password,
 				name: this.state.name,
 				address: this.state.address,
 				phone_number: this.state.phone_number,
 				photo_url: this.state.photo_url,
 				inventory: this.state.inventory,
-				prices: this.state.prices
-			}).then(function (response) {
-				console.log(response);
+				prices: this.state.prices,
+			})
+		})
+			.then(response => response.json())
+			.then(user => {
+				localStorage.setItem('uuid', user[1]);
+				localStorage.setItem('token', data[2]);
+				this.props.history.push("/");
 			})
 	}
+
+
+	// onSubmitSignIn = () => {
+	// 	// fetch('http://api.medwithoutborders.org/source/new_user', {
+	// 	// 	method: 'post',
+	// 	// 	headers: {"Access-Control-Allow-Origin": "*",
+	// 	// 		"Access-Control-Allow-Headers" : "Origin, X-Requested-With, Content-Type, Accept"
+	// 	// 	}
+	// 	// 	body: JSON.stringify({
+	// 	// 		username: this.state.username,
+	// 	// 		password: this.state.password,
+	// 	// 		name: this.state.name,
+	// 	// 		address: this.state.address,
+	// 	// 		phone_number: this.state.phone_number,
+	// 	// 		photo_url: this.state.photo_url,
+	// 	// 		inventory: this.state.inventory,
+	// 	// 		prices: this.state.prices,
+	// 	// 	})
+	// 	// }).then(response => {
+	// 	// 		console.log(response.json())
+	// 	// 	})
+	// 	// 	.then(data => {
+	// 	// 			localStorage.setItem('uuid', data[1]);
+	// 	// 			localStorage.setItem('token', data[2]);
+	// 	// 			this.props.history.push("/");
+	// 	// 	})
+			
+	// 		axios.post('http://api.medwithoutborders.org/source/new_user', {
+	// 			username : this.state.username,
+	// 			password: this.state.password,
+	// 			name: this.state.name,
+	// 			address: this.state.address,
+	// 			phone_number: this.state.phone_number,
+	// 			photo_url: this.state.photo_url,
+	// 			inventory: this.state.inventory,
+	// 			prices: this.state.prices
+	// 		}).then(function (response) {
+	// 			console.log(response);
+	// 		})
+	// }
 	
 	render() {
 		return (
