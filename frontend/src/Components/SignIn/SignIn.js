@@ -19,19 +19,20 @@ class SignIn extends React.Component {
 	}
 
 	onSubmitSignIn = () => {
-		fetch('http://localhost:3000/signin', {
+		fetch('http://api.medwithoutborders.org/source/login_normal', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
 				username: this.state.signInEmail,
-				password: this.state.signInPassword
+				password: this.state.signInPassword,
 			})
 		})
 			.then(response => response.json())
 			.then(user => {
 				if (user.id) {
-					this.props.loadUser(user);
-					this.props.onRouteChange('home')
+					localStorage.setItem('uuid', user.uuid);
+					localStorage.setItem('token', user.token);
+					this.props.history.push("/need");
 				}
 			})
 	}

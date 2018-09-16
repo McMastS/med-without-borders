@@ -5,6 +5,7 @@ import Inventory from '../Inventory/Inventory.js';
 import Supply from '../Supply/Supply.js';
 import SignIn from '../SignIn/SignIn.js';
 import Register from '../Register/Register.js';
+import AboutPage from '../AboutPage/AboutPage.js'
 
 const Main = () => {
 	return (
@@ -14,6 +15,7 @@ const Main = () => {
 			<Route path='/have' component={Supply} />
 			<Route path='/signin' component={SignIn} />
 			<Route path='/register' component={Register} />
+			<Route path='/about' component={AboutPage} />
 		</Switch>
 	)
 }
