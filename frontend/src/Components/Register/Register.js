@@ -84,11 +84,9 @@ class Register extends React.Component {
 				photo_url: this.state.photo_url,
 				inventory: this.state.inventory,
 				prices: this.state.prices
-			}
-		}).then(function (response) {
+			}).then(function (response) {
 				console.log(response);
 			})
-		
 	}
 	
 	render() {
