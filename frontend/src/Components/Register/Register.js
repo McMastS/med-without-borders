@@ -1,6 +1,6 @@
 import React from 'react';
 import './Register.css';
-import Axios from 'axios';
+import axios from 'axios';
 
 class Register extends React.Component {
 	constructor(props) {
