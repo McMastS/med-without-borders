@@ -65,8 +65,8 @@ class Register extends React.Component {
 		})
 			.then(response => response.json())
 			.then(response => {
-					localStorage.setItem('uuid', data[1]);
-					localStorage.setItem('token', data[2]);
+					localStorage.setItem('uuid', response[1]);
+					localStorage.setItem('token', response[2]);
 					this.props.history.push("/");
 			})
 	}
