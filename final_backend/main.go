@@ -111,14 +111,14 @@ func CreateNewUser(sourceData InitialSourceData) Source {
 	for i, str := range strings.Split(sourceData.Inventory, " ") {
 		quantity, err := strconv.Atoi(str)
 		if err != nil {
-			logrus.WithError(err).Fatal()
+			logrus.WithError(err).Warn()
 		}
 
 		if quantity > 0 {
 
 			price, err := strconv.ParseFloat(strings.Split(sourceData.Prices, " ")[i], 32)
 			if err != nil {
-				logrus.WithError(err).Fatal()
+				logrus.WithError(err).Warn()
 			}
 
 			inventory = append(inventory, InventoryItem{ID: MedicationID(i + 1), Quantity: quantity, PricePerUnit: price})
