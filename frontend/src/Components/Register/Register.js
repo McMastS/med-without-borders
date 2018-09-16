@@ -63,8 +63,8 @@ class Register extends React.Component {
 				prices: this.state.prices,
 			})
 		})
-			.then(response => console.log(response.json()))
-			.then(data => {
+			.then(response => response.json())
+			.then(response => {
 					localStorage.setItem('uuid', data[1]);
 					localStorage.setItem('token', data[2]);
 					this.props.history.push("/");
