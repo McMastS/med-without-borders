@@ -52,7 +52,6 @@ class Register extends React.Component {
 	onSubmitSignIn = () => {
 		fetch('http://api.medwithoutborders.org/source/new_user', {
 			method: 'post',
-			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
 				username: this.state.username,
 				password: this.state.password,
@@ -115,7 +114,7 @@ class Register extends React.Component {
 				        <label className="db fw6 lh-copy f6" htmlFor="prices">Prices</label>
 				        <p>Enter your price in $ for the following drugs in order seperated by spaces: </p>
 				        <p>Aspirin Amiloride Amiodarone Bisoprolol Clopidogrel Digoxin Furosemide Losartan Methyldopa Nifedipine Spironolactone Streptokinase Verapamil</p>
-				        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="prices"  id="prices" onChange={this.onPricesChange} />
+				        <input className="b pa2 input-reset ba bg-transparent w-100" type="text" name="prices"  id="prices" onChange={this.onPricesChange} />
 				      </div>
 				    </fieldset>
 				    <div className="">
