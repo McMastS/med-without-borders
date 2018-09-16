@@ -103,18 +103,6 @@ class Register extends React.Component {
 				        <label className="db fw6 lh-copy f6" htmlFor="photo_url">Photo Url</label>
 				        <input className="b pa2 input-reset ba bg-transparent w-100" type="text" name="photo_url"  id="photo_url" onChange={this.onPhotoChange} />
 				      </div>
-				      <div className="mv3">
-				        <label className="db fw6 lh-copy f6" htmlFor="inventory">Existing Inventory</label>
-				        <p>Enter your inventory in standard units for the following drugs in order seperated by spaces: </p>
-				        <p>Aspirin Amiloride Amiodarone Bisoprolol Clopidogrel Digoxin Furosemide Losartan Methyldopa Nifedipine Spironolactone Streptokinase Verapamil</p>
-				        <input className="b pa2 input-reset ba bg-transparent w-100" type="text" name="inventory"  id="inventory" onChange={this.onInventoryChange} />
-				      </div>
-				      <div className="mv3">
-				        <label className="db fw6 lh-copy f6" htmlFor="prices">Prices</label>
-				        <p>Enter your price in $ for the following drugs in order seperated by spaces: </p>
-				        <p>Aspirin Amiloride Amiodarone Bisoprolol Clopidogrel Digoxin Furosemide Losartan Methyldopa Nifedipine Spironolactone Streptokinase Verapamil</p>
-				        <input className="b pa2 input-reset ba bg-transparent w-100" type="text" name="prices"  id="prices" onChange={this.onPricesChange} />
-				      </div>
 				    </fieldset>
 				    <div className="tc">
 				      <input onClick={this.onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Register" />

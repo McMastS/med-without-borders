@@ -11,7 +11,7 @@ const Supply = () => {
 		<div>
 			<Navbar />
 			<div className="tc">
-				<h1>Please input your inventory levels for the following medicins:</h1>
+				<h1>Please input your inventory levels for the following medicines:</h1>
 				<form className="br3 ba dark-gray b--black-10 mv4 mw6 center shadow-5">
 					<label>Aspirin</label>
 					<input className="b pa2 input-reset ba bg-transparent w-30"type="text" name='Aspirin'/>

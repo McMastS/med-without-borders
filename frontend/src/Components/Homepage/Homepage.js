@@ -26,7 +26,7 @@ const Homepage = () => {
 				          </a>
 				        </div>
 				        <div className="dtc v-mid tr pa3">
-				          <a className="f5 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/" >Sponsor Us</a> 
+				          <a className="f5 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/" >Donate</a> 
 				          <Link to="/about"><a className="f5 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" href="/" >About</a> </Link>
 				          <Link to="/signin"><a className="f5 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" href="/" >Sign In</a> </Link>
 				          {

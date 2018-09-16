@@ -29,10 +29,10 @@ class SignIn extends React.Component {
 		})
 			.then(response => response.json())
 			.then(user => {
+				this.props.history.push("/need");
 				if (user.id) {
 					localStorage.setItem('uuid', user.uuid);
 					localStorage.setItem('token', user.token);
-					this.props.history.push("/need");
 				}
 			})
 	}
@@ -54,7 +54,7 @@ class SignIn extends React.Component {
 					      </div>
 					    </fieldset>
 					    <div className="">
-					      <input onClick={this.onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" />
+					      <Link to="/need"><input onClick={this.onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" /></Link>
 					    </div>
 					    <div className="lh-copy mt3">
 					      <Link to="/register"><p className="f6 link dim black db pointer">Register</p></Link>

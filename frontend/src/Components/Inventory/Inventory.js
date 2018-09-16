@@ -29,12 +29,12 @@ class Inventory extends Component {
         .then(res => res.json())
         .then(data => this.setState({ inventory : data, isLoading : false, }))
         
-     // this.setState({ inventory: [{"id":"5b9cdc54cb18d0095c485dce","name":"Best Buy","quantity":30,price_per_unit:10.3, medicine: 'Aspirin', distance:50},{"id":"5b9cdc73cb18d00ddb4a2552","name":"Best Buy","quantity":30,"price_per_unit":10.3, distance: 60},{"id":"5b9cddd7cb18d01da2a9e2fa","name":"Best Buy","quantity":30,"price_per_unit":10.3, distance: 70},{"id":"5b9cde42cb18d022dd02f356","name":"Best Buy","quantity":30,"price_per_unit":10.3, distance: 10}]  })
+     // this.setState({ inventory: [{"id":"5b9cdc54cb18d0095c485dce","name":"Rocky View Hospital","quantity":30,"price_per_unit":10.3, "distance": 56.4, "medType": 1}, {"id":"5b9cdc54cb18d0095c485dce","name":"General Hospital","quantity":200,"price_per_unit":10.3, "distance": 63.7, "medType":2}]})
     }
   
 
     componentDidMount () {
-      //this.fetchSuppliers();
+      this.fetchSuppliers();
       //this.setState({ inventory: [{"id":"5b9cdc54cb18d0095c485dce","name":"Best Buy","quantity":30,"price_per_unit":10.3}]})
     }
 
