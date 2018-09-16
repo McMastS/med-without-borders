@@ -20,8 +20,9 @@ class Inventory extends Component {
       method: 'post',
       body: JSON.stringify({
         id: value,
-        uuid: localStorage.getItem('uuid')
-      }))
+        uuid: localStorage.getItem('uuid'),
+      })
+    })
         .then(res => res.json())
         .then(data => this.setState({ inventory : data, isLoading : false, }))
         
