@@ -111,14 +111,14 @@ func CreateNewUser(sourceData InitialSourceData) Source {
 	for i, str := range strings.Split(sourceData.Inventory, " ") {
 		quantity, err := strconv.Atoi(str)
 		if err != nil {
-			logrus.WithError(err).Fatal()
+			logrus.WithError(err).Warn()
 		}
 
 		if quantity > 0 {
 
 			price, err := strconv.ParseFloat(strings.Split(sourceData.Prices, " ")[i], 32)
 			if err != nil {
-				logrus.WithError(err).Fatal()
+				logrus.WithError(err).Warn()
 			}
 
 			inventory = append(inventory, InventoryItem{ID: MedicationID(i + 1), Quantity: quantity, PricePerUnit: price})
@@ -286,11 +286,13 @@ type SupplierDataRequest struct {
 }
 
 type SupplierData struct {
-	ID       string  `bson:"id" json:"id"`
-	Name     string  `bson:"name" json:"name"`
-	Quantity int     `bson:"quantity" json:"quantity"`
-	Price    float64 `bson:"price_per_unit" json:"price_per_unit"`
-	Distance float64 `bson:"distance" json:"distance"`
+	ID          string  `bson:"id" json:"id"`
+	Name        string  `bson:"name" json:"name"`
+	Quantity    int     `bson:"quantity" json:"quantity"`
+	Price       float64 `bson:"price_per_unit" json:"price_per_unit"`
+	Distance    float64 `bson:"distance" json:"distance"`
+	Address     string  `bson:"address" json:"address"`
+	PhoneNumber string  `bson:"phone_number" json:"phone_number"`
 }
 
 func GatherSupplierDataForMedicine(dr SupplierDataRequest) ([]SupplierData, error) {
@@ -323,7 +325,7 @@ func GatherSupplierDataForMedicine(dr SupplierDataRequest) ([]SupplierData, erro
 
 				distance := math.Sqrt((y1-x1)*(y1-x1) + (y2-x2)*(y2-x2))
 
-				supplierData = append(supplierData, SupplierData{s.UUID.Hex(), s.Name, i.Quantity, i.PricePerUnit, distance})
+				supplierData = append(supplierData, SupplierData{s.UUID.Hex(), s.Name, i.Quantity, i.PricePerUnit, distance, s.Address, s.PhoneNumber})
 				break
 			}
 		}
@@ -489,6 +491,10 @@ func GetCoordinatesFromAddress(address string) (float64, float64, error) {
 			if str[i] == '-' {
 				s += string(str[i])
 				i++
+				continue
+			}
+
+			if s == "\"\"" {
 				continue
 			}
 
