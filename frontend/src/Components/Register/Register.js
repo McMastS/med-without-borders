@@ -49,7 +49,7 @@ class Register extends React.Component {
 	}
 
 
-	onSubmitSignIn = () => {
+	async function onSubmitSignIn() {
 		fetch('http://api.medwithoutborders.org/source/new_user', {
 			method: 'post',
 			body: JSON.stringify({
@@ -63,11 +63,14 @@ class Register extends React.Component {
 				prices: this.state.prices,
 			})
 		})
-			.then(response =>
-					localStorage.setItem('uuid', response[1]);
-					localStorage.setItem('token', response[2]);
+			.then(response => {
+				if (!response.ok) { throw response }
+				response.json()
+			})
+			.then(json => {
+					localStorage.setItem('uuid', json[1]);
+					localStorage.setItem('token', json[2]);
 					this.props.history.push("/");
-					)
 			})
 	}
 	
