@@ -494,6 +494,10 @@ func GetCoordinatesFromAddress(address string) (float64, float64, error) {
 				continue
 			}
 
+			if s == "\"\"" {
+				continue
+			}
+
 			if _, err := strconv.Atoi(string(str[i])); err == nil {
 				s += string(str[i])
 			}
