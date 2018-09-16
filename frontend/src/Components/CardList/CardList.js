@@ -9,7 +9,6 @@ const CardList = ({ inventory, medicine }) => {
         inventory.map((supplier, i) => {
           return (
             <Card
-              id={inventory[i].id}
               name={inventory[i].name}
               quantity={inventory[i].quantity}
               price_per_unit={inventory[i].price_per_unit}
@@ -22,5 +21,3 @@ const CardList = ({ inventory, medicine }) => {
 }
 
 export default CardList;
-
-// GET INFO ON CARDS
