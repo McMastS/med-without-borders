@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Card = ({ id, name, distance, price, quantity }) => {
+const Card = ({ name, distance, price, quantity }) => {
   return (
     <div className='tc grow bg-red br3 pa3 ma2 dib bw2 shadow-5'>
       <div>
         <h2>{name}</h2>
-        <p>{id}</p>
         <p>{distance}</p>
         <p>{price}</p>
         <p>{quantity}</p>

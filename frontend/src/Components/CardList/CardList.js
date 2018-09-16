@@ -10,8 +10,9 @@ const CardList = ({ inventory, medicine }) => {
           return (
             <Card
               name={inventory[i].name}
-              quantity={inventory[i].quantity}
+              distance={inventory[i].distance}
               price_per_unit={inventory[i].price_per_unit}
+              quantity={inventory[i].quantity}
               />
           );
         })
