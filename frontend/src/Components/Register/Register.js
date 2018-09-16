@@ -63,12 +63,20 @@ class Register extends React.Component {
 				prices: this.state.prices,
 			})
 		})
-			.then(response => console.log(response))
 			.then(response => response.json())
 			.then(user => {
 				this.props.history.push("/");
 			})
-		
+		console.log(JSON.stringify({
+				username: this.state.username,
+				password: this.state.password,
+				name: this.state.name,
+				address: this.state.address,
+				phone_number: this.state.phone_number,
+				photo_url: this.state.photo_url,
+				inventory: this.state.inventory,
+				prices: this.state.prices,
+			}))
 	}
 	
 	render() {
