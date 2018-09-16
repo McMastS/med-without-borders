@@ -84,8 +84,6 @@ class Register extends React.Component {
 				photo_url: this.state.photo_url,
 				inventory: this.state.inventory,
 				prices: this.state.prices
-			}, { headers: {"Access-Control-Allow-Origin": "*",
-				"Access-Control-Allow-Headers" : "Origin, X-Requested-With, Content-Type, Accept"
 			}
 		}).then(function (response) {
 				console.log(response);
