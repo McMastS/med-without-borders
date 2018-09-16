@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SignIn extends React.Component {
 	constructor(props) {
@@ -44,18 +45,19 @@ class SignIn extends React.Component {
 					      <legend className="f1 fw6 ph0 mh0">Sign In</legend>
 					      <div className="mt3">
 					        <label className="db fw6 lh-copy f6" htmlFor="email-address">Username</label>
-					        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address" onChange={this.onEmailChange} />
+					        <input className="pa2 input-reset ba bg-transparent w-100" type="email" name="email-address"  id="email-address" onChange={this.onEmailChange} />
 					      </div>
 					      <div className="mv3">
 					        <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-					        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password" onChange={this.onPasswordChange} />
+					        <input className="b pa2 input-reset ba bg-transparent w-100" type="password" name="password"  id="password" onChange={this.onPasswordChange} />
 					      </div>
 					    </fieldset>
 					    <div className="">
 					      <input onClick={this.onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" />
 					    </div>
 					    <div className="lh-copy mt3">
-					      <p onClick={() => this.props.onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
+					      <Link to="/register"><p className="f6 link dim black db pointer">Register</p></Link>
+					      <Link to="/"><p className="f6 link dim black db pointer">Home</p></Link>
 					    </div>
 					  </div>
 					</main>

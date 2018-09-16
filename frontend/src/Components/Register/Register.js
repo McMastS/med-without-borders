@@ -1,5 +1,6 @@
 import React from 'react';
 import './Register.css';
+import { Link } from 'react-router-dom';
 
 class Register extends React.Component {
 	constructor(props) {
@@ -65,52 +66,11 @@ class Register extends React.Component {
 		})
 			.then(response => response.json())
 			.then(user => {
-				console.log(user);
 				localStorage.setItem('uuid', user.uuid);
 				localStorage.setItem('token', user.token);
 				this.props.history.push("/");
 			})
 	}
-
-
-	// onSubmitSignIn = () => {
-	// 	// fetch('http://api.medwithoutborders.org/source/new_user', {
-	// 	// 	method: 'post',
-	// 	// 	headers: {"Access-Control-Allow-Origin": "*",
-	// 	// 		"Access-Control-Allow-Headers" : "Origin, X-Requested-With, Content-Type, Accept"
-	// 	// 	}
-	// 	// 	body: JSON.stringify({
-	// 	// 		username: this.state.username,
-	// 	// 		password: this.state.password,
-	// 	// 		name: this.state.name,
-	// 	// 		address: this.state.address,
-	// 	// 		phone_number: this.state.phone_number,
-	// 	// 		photo_url: this.state.photo_url,
-	// 	// 		inventory: this.state.inventory,
-	// 	// 		prices: this.state.prices,
-	// 	// 	})
-	// 	// }).then(response => {
-	// 	// 		console.log(response.json())
-	// 	// 	})
-	// 	// 	.then(data => {
-	// 	// 			localStorage.setItem('uuid', data[1]);
-	// 	// 			localStorage.setItem('token', data[2]);
-	// 	// 			this.props.history.push("/");
-	// 	// 	})
-			
-	// 		axios.post('http://api.medwithoutborders.org/source/new_user', {
-	// 			username : this.state.username,
-	// 			password: this.state.password,
-	// 			name: this.state.name,
-	// 			address: this.state.address,
-	// 			phone_number: this.state.phone_number,
-	// 			photo_url: this.state.photo_url,
-	// 			inventory: this.state.inventory,
-	// 			prices: this.state.prices
-	// 		}).then(function (response) {
-	// 			console.log(response);
-	// 		})
-	// }
 	
 	render() {
 		return (
@@ -156,8 +116,9 @@ class Register extends React.Component {
 				        <input className="b pa2 input-reset ba bg-transparent w-100" type="text" name="prices"  id="prices" onChange={this.onPricesChange} />
 				      </div>
 				    </fieldset>
-				    <div className="">
+				    <div className="tc">
 				      <input onClick={this.onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Register" />
+				      <Link to="/"><input onClick={this.onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Home" /></Link>
 				    </div>
 				  </div>
 				</main>
