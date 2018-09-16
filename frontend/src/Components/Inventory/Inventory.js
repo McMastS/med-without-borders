@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Dropdown from '../Dropdown/Dropdown.js';
 import CardList from '../CardList/CardList.js';
 
-const API = 'api.medwithoutborders.org/medicine/'
+const API = 'http://api.medwithoutborders.org/medicine/'
 
 class Inventory extends Component {
   constructor(props) {
