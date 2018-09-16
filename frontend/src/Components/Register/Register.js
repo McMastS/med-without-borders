@@ -49,7 +49,7 @@ class Register extends React.Component {
 	}
 
 
-	async function onSubmitSignIn() {
+	onSubmitSignIn = () => {
 		fetch('http://api.medwithoutborders.org/source/new_user', {
 			method: 'post',
 			body: JSON.stringify({
