@@ -8,3 +8,7 @@ To prevent the abuse of such a service, specific criteria were applied to the se
 React, MongoDB and, Here.com API.
 
 This is a Hack The North 2018 - Hackers Project. 
+
+
+----------------------------------------------------------
+The above description and this project is all from my team's Hack the North 2018 submission. I was responsible for the entire front-end. I had taken a React course in the summer, and I used this hackathon as a way to put that course to use.
