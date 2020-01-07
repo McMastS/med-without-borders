@@ -1,3 +1,6 @@
+The below description and this project is all from my team's Hack the North 2018 submission. I was responsible for the entire front-end. I had taken a React course in the summer, and I used this hackathon as a way to put that course to use.
+
+----------------------------------------------------------
 # MedWithoutBorders
 *Med Without Borders* is a non-profit, self-sustaining web service that addresses the lack of essential medicines globally and particularly in developing countries. According to the World Health Organization [(WHO, 2001)](https://www.sciencedirect.com/science/article/pii/B9780128112281000236#bib36), pharmaceutical policies govern the framework needed to ensure the efficient and fair access of populations to quality-assured medicines. However, such policies depend on a country's economic level and available resources, therefore, they are mostly suboptimally implemented in low- and middle-income countries (LMICs). By facilitating the swift access to necessary medications in a regulated and secure environment, our service helps alleviate the health of patients and saves more lives each day.   
 
@@ -8,7 +11,3 @@ To prevent the abuse of such a service, specific criteria were applied to the se
 React, MongoDB and, Here.com API.
 
 This is a Hack The North 2018 - Hackers Project. 
-
-
-----------------------------------------------------------
-The above description and this project is all from my team's Hack the North 2018 submission. I was responsible for the entire front-end. I had taken a React course in the summer, and I used this hackathon as a way to put that course to use.
